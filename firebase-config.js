@@ -1,8 +1,8 @@
 export const firebaseConfig = {
-  apiKey: "AIzaSyAliUikpM-hM8FR7JCJGr0BdXLBOzdmfG4",
-  authDomain: "yusube-every-sits.firebaseapp.com",
-  projectId: "yusube-every-sits",
-  storageBucket: "yusube-every-sits.firebasestorage.app",
-  messagingSenderId: "917941822154",
-  appId: "1:917941822154:web:1b12f53514fc5eaa064a33",
+  apiKey: "AIzaSyDv8MoHDI9ZaUQEe-ry_oQH8oJXS3_h5-Y",
+  authDomain: "kixo9-4577d.firebaseapp.com",
+  projectId: "kixo9-4577d",
+  storageBucket: "kixo9-4577d.firebasestorage.app",
+  messagingSenderId: "549969295900",
+  appId: "1:549969295900:web:43f3b6446de102706b7dd9",
 };
