@@ -1,0 +1,37 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Complaints collection - open read/write (no login).
+    // NOTE: anyone with the web config can read, create, update and delete
+    // these documents, including the password field.
+    match /complaints/{complaintId} {
+      allow read, write: if true;
+    }
+
+    // App settings: online chat URL + telegram alert config.
+    // NOTE: the telegram bot token is readable by anyone who can read this doc.
+    match /settings/{docId} {
+      allow read, write: if true;
+    }
+
+    // Chat threads + messages.
+    match /chats/{chatId} {
+      allow read, write: if true;
+
+      match /messages/{messageId} {
+        allow read, write: if true;
+      }
+    }
+
+    // Presence (online / offline).
+    match /presence/{docId} {
+      allow read, write: if true;
+    }
+
+    // Everything else stays locked.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
