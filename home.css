@@ -1,0 +1,419 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    body {
+      background: #ffffff;
+      color: #1f2937;
+      min-height: 100vh;
+    }
+
+    /* ---------- Splash ---------- */
+    .splash {
+      position: fixed;
+      inset: 0;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      animation: splashHide 0.5s ease 1.5s forwards;
+    }
+
+    .splash img {
+      width: min(340px, 80vw);
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      opacity: 0;
+      animation: splashLogo 0.9s ease 0.15s forwards;
+    }
+
+    @keyframes splashLogo {
+      0% {
+        opacity: 0;
+        transform: scale(0.6);
+      }
+      60% {
+        opacity: 1;
+        transform: scale(1.06);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes splashHide {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    /* ---------- Header ---------- */
+    .header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 14px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      width: 90px;
+      height: auto;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    .brand {
+      font-size: 20px;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .menu-btn {
+      position: absolute;
+      right: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 42px;
+      height: 42px;
+      border: 1px solid #e5e7eb;
+      border-radius: 50%;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .menu-btn:hover {
+      background: #f0f7ff;
+      border-color: #2563eb;
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.18);
+    }
+
+    .menu-btn svg {
+      width: 20px;
+      height: 20px;
+      stroke: #374151;
+      transition: stroke 0.2s;
+    }
+
+    .menu-btn:hover svg {
+      stroke: #2563eb;
+    }
+
+    /* ---------- Container ---------- */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 34px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+    }
+
+    .title {
+      font-size: 26px;
+      font-weight: 700;
+      text-align: center;
+      color: #111827;
+      margin-bottom: 26px;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 640px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .header {
+        padding: 12px 16px;
+      }
+
+      .logo {
+        width: 68px;
+      }
+
+      .brand {
+        font-size: 16px;
+      }
+
+      .menu-btn {
+        right: 16px;
+        width: 38px;
+        height: 38px;
+      }
+
+      .card {
+        padding: 24px 18px;
+      }
+
+      .complaint-details {
+        grid-template-columns: 1fr;
+      }
+
+      .view-btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .img-close {
+        top: 8px;
+        right: 8px;
+      }
+    }
+    /* ---------- Toast ---------- */
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      transform: translateX(-50%) translateY(20px);
+      background: #0f172a;
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.35);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      z-index: 300;
+      max-width: calc(100vw - 32px);
+      text-align: center;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .toast.ok {
+      background: #16a34a;
+    }
+
+    /* ---------- Home ---------- */
+    .home-head {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .home-head .title {
+      margin-bottom: 8px;
+    }
+
+    .home-sub {
+      color: #6b7280;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .home-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .help-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 30px 22px 24px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+
+    .help-card:hover {
+      border-color: #2563eb;
+      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.14);
+      transform: translateY(-2px);
+    }
+
+    .help-icon {
+      width: 74px;
+      height: 74px;
+      border-radius: 50%;
+      background: #eff6ff;
+      border: 1px solid #dbeafe;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .help-icon svg {
+      width: 34px;
+      height: 34px;
+      stroke: #2563eb;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .help-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 20px;
+    }
+
+    .help-btn {
+      margin-top: auto;
+      width: 100%;
+      max-width: 220px;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #2563eb;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .help-btn:hover {
+      background: #1d4ed8;
+    }
+
+    @media (max-width: 640px) {
+      .home-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .help-card {
+        max-width: 380px;
+        width: 100%;
+        margin: 0 auto;
+      }
+    }
+
+/* ---------- Menu (left drawer) ---------- */
+.menu-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 400;
+}
+
+.menu-overlay.show {
+  display: block;
+}
+
+.menu-panel {
+  width: min(300px, 85vw);
+  height: 100%;
+  background: #ffffff;
+  padding: 20px 16px;
+  overflow-y: auto;
+  box-shadow: 8px 0 24px rgba(0, 0, 0, 0.18);
+  animation: menuSlideIn 0.25s ease;
+}
+
+@keyframes menuSlideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.menu-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  padding: 4px 4px 16px;
+}
+
+.menu-x {
+  width: 34px;
+  height: 34px;
+  border: 1px solid #e5e7eb;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #374151;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-x:hover {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 13px 14px;
+  margin-bottom: 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #111827;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.menu-item:hover {
+  background: #f0f7ff;
+  border-color: #2563eb;
+}
+
+.menu-item.active {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff;
+}
+
+.menu-item svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  stroke: #2563eb;
+}
+
+.menu-item.active svg {
+  stroke: #ffffff;
+}
