@@ -215,6 +215,21 @@
     }
 
     /* ---------- Home ---------- */
+    .home-banner {
+      margin-bottom: 26px;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+    }
+
+    .home-banner img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
     .home-head {
       text-align: center;
       margin-bottom: 28px;
