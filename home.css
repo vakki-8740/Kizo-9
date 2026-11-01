@@ -236,13 +236,7 @@
     }
 
     .home-head .title {
-      margin-bottom: 8px;
-    }
-
-    .home-sub {
-      color: #6b7280;
-      font-size: 15px;
-      line-height: 1.5;
+      margin-bottom: 0;
     }
 
     .home-grid {
