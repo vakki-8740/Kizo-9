@@ -11,8 +11,8 @@
       min-height: 100vh;
     }
 
-    /* ---------- Splash ---------- */
-    .splash {
+    /* ---------- Opening loader ---------- */
+    .kx-opening {
       position: fixed;
       inset: 0;
       background: #ffffff;
@@ -20,37 +20,77 @@
       align-items: center;
       justify-content: center;
       z-index: 9999;
-      animation: splashHide 0.5s ease 1.5s forwards;
+      animation: kxOpeningHide 0.5s ease 1.6s forwards;
     }
 
-    .splash img {
-      width: min(340px, 80vw);
-      height: auto;
-      display: block;
-      margin: 0 auto;
-      opacity: 0;
-      animation: splashLogo 0.9s ease 0.15s forwards;
-    }
-
-    @keyframes splashLogo {
-      0% {
-        opacity: 0;
-        transform: scale(0.6);
-      }
-      60% {
-        opacity: 1;
-        transform: scale(1.06);
-      }
-      100% {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    @keyframes splashHide {
+    @keyframes kxOpeningHide {
       to {
         opacity: 0;
         visibility: hidden;
+      }
+    }
+
+    .kx-loader {
+      --kx-w: min(320px, 82vw);
+      --kx-img-k: url("logo/loader/k.webp");
+      --kx-img-i: url("logo/loader/i.webp");
+      --kx-img-x: url("logo/loader/x.webp");
+      --kx-img-o: url("logo/loader/o.webp");
+      --kx-img-n: url("logo/loader/9.webp");
+      --kx-ar: 472 / 126;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: calc(var(--kx-w, 300px) * 0.05);
+      color: var(--kx-ink, #0c0d12);
+      font-family: "Archivo", "Arial Black", Impact, sans-serif;
+      font-style: italic;
+      font-weight: 900;
+      font-size: calc(var(--kx-w, 300px) * 0.06);
+      user-select: none;
+    }
+
+    .kx-loader .kx-logo {
+      position: relative;
+      width: var(--kx-w, 300px);
+      aspect-ratio: var(--kx-ar);
+    }
+
+    .kx-loader .kx-l {
+      position: absolute;
+      inset: 0;
+      background: var(--kx-ink, #0c0d12);
+      -webkit-mask: var(--kx-m) center / 100% 100% no-repeat;
+      mask: var(--kx-m) center / 100% 100% no-repeat;
+      transform-origin: var(--ox, 50%) 89.68%;
+    }
+
+    .kx-loader .kx-k { --kx-m: var(--kx-img-k); }
+    .kx-loader .kx-i { --kx-m: var(--kx-img-i); }
+    .kx-loader .kx-x { --kx-m: var(--kx-img-x); }
+    .kx-loader .kx-o { --kx-m: var(--kx-img-o); }
+    .kx-loader .kx-n { --kx-m: var(--kx-img-n); background: var(--kx-blue, #1155fa); }
+
+    @keyframes kx1-hop {
+      0%, 55%, 100% { transform: translateY(0) scale(1, 1); }
+      20% { transform: translateY(calc(var(--kx-w, 300px) * -0.08)) scale(0.97, 1.05); }
+      40% { transform: translateY(0) scale(1.05, 0.93); }
+      47% { transform: translateY(0) scale(1, 1); }
+    }
+
+    .kx-l1 .kx-l {
+      animation: kx1-hop 1.2s ease-in-out infinite;
+      animation-delay: calc(var(--i) * 0.1s);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .kx-l1 .kx-l {
+        animation: none;
+      }
+
+      .kx-opening {
+        animation-duration: 0.01s;
+        animation-delay: 0.01s;
       }
     }
 
