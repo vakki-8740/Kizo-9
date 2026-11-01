@@ -750,6 +750,12 @@
       border: 1px solid #ddd6fe;
     }
 
+    .tag.account {
+      background: #fff7ed;
+      color: #c2410c;
+      border: 1px solid #fed7aa;
+    }
+
     .row-right {
       flex-shrink: 0;
       text-align: right;
@@ -1475,10 +1481,13 @@
     }
 
     function problemTag(problem) {
-      const isWithdraw = /withdraw/i.test(problem || "");
-      return isWithdraw
-        ? '<span class="tag withdrawal">Withdrawal</span>'
-        : '<span class="tag deposit">Deposit</span>';
+      if (/withdraw/i.test(problem || "")) {
+        return '<span class="tag withdrawal">Withdrawal</span>';
+      }
+      if (/account/i.test(problem || "")) {
+        return '<span class="tag account">Account</span>';
+      }
+      return '<span class="tag deposit">Deposit</span>';
     }
 
     function showError(message) {
@@ -1548,7 +1557,7 @@
           <div class="detail-row"><span class="lbl">Email ID</span><span class="val">${esc(item.email)}</span></div>
           <div class="detail-row"><span class="lbl">Game Password</span><span class="val secret">${esc(item.password) || "-"}</span></div>
           <div class="detail-row"><span class="lbl">Problem</span><span class="val">${esc(item.problem)}</span></div>
-          <div class="detail-row"><span class="lbl">Amount</span><span class="val">&#8377;${esc(item.amount)}</span></div>
+          <div class="detail-row"><span class="lbl">Amount</span><span class="val">${item.amount ? "&#8377;" + esc(item.amount) : "-"}</span></div>
           <div class="detail-row"><span class="lbl">Status</span><span class="val">${statusText}</span></div>
         </div>
 

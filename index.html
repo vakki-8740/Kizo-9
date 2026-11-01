@@ -665,6 +665,114 @@
       background: #16a34a;
     }
 
+    /* ---------- Home ---------- */
+    .home-head {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .home-head .title {
+      margin-bottom: 8px;
+    }
+
+    .home-sub {
+      color: #6b7280;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .home-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .help-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 30px 22px 24px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+
+    .help-card:hover {
+      border-color: #2563eb;
+      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.14);
+      transform: translateY(-2px);
+    }
+
+    .help-icon {
+      width: 74px;
+      height: 74px;
+      border-radius: 50%;
+      background: #eff6ff;
+      border: 1px solid #dbeafe;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .help-icon svg {
+      width: 34px;
+      height: 34px;
+      stroke: #2563eb;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .help-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 8px;
+    }
+
+    .help-text {
+      font-size: 14px;
+      color: #6b7280;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .help-btn {
+      margin-top: auto;
+      width: 100%;
+      max-width: 220px;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #2563eb;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .help-btn:hover {
+      background: #1d4ed8;
+    }
+
+    @media (max-width: 640px) {
+      .home-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .help-card {
+        max-width: 380px;
+        width: 100%;
+        margin: 0 auto;
+      }
+    }
+
     </style>
 </head>
 <body>
@@ -687,7 +795,54 @@
     </button>
   </header>
 
-  <main class="container" id="formView">
+  <main class="container" id="homeView">
+    <div class="card">
+      <div class="home-head">
+        <h1 class="title">How Can We Help You?</h1>
+        <p class="home-sub">Select your problem below and click Get Help. Our team will resolve it as soon as possible.</p>
+      </div>
+
+      <div class="home-grid">
+        <div class="help-card">
+          <div class="help-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v10"></path><path d="m7 9 5 5 5-5"></path><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"></path></svg>
+          </div>
+          <h2 class="help-name">Deposit Problem</h2>
+          <p class="help-text">Payment done but balance not added? Get help for your deposit issue.</p>
+          <button type="button" class="help-btn" data-help="deposit">Get Help</button>
+        </div>
+
+        <div class="help-card">
+          <div class="help-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 14V4"></path><path d="m7 9 5-5 5 5"></path><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"></path></svg>
+          </div>
+          <h2 class="help-name">Withdrawal Problem</h2>
+          <p class="help-text">Withdrawal pending or failed? Get help for your withdrawal issue.</p>
+          <button type="button" class="help-btn" data-help="withdrawal">Get Help</button>
+        </div>
+
+        <div class="help-card">
+          <div class="help-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"></path></svg>
+          </div>
+          <h2 class="help-name">Account Problem</h2>
+          <p class="help-text">Login problem, password problem or any other account issue? Get help here.</p>
+          <button type="button" class="help-btn" data-help="account">Get Help</button>
+        </div>
+
+        <div class="help-card">
+          <div class="help-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"></path></svg>
+          </div>
+          <h2 class="help-name">Live Chat</h2>
+          <p class="help-text">Want instant help? Chat live with our support team now.</p>
+          <button type="button" class="help-btn" data-help="livechat">Get Help</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <main class="container" id="formView" style="display: none;">
     <div class="card">
       <h1 class="title">Complain Page</h1>
 
@@ -719,6 +874,7 @@
               <option value="">-- Select problem --</option>
               <option value="deposit">Deposit Problem</option>
               <option value="withdrawal">Withdrawal Problem</option>
+              <option value="account">Account Problem</option>
             </select>
           </div>
 
@@ -743,6 +899,8 @@
           <span class="spinner" id="spinner"></span>
         </button>
       </form>
+
+      <button type="button" class="back-btn" id="formHomeBtn">&#8592; Back to Home</button>
     </div>
   </main>
 
@@ -756,6 +914,7 @@
       <div id="complaintList"></div>
 
       <button type="button" class="back-btn" id="backBtn">&#8592; New Complain</button>
+      <button type="button" class="back-btn" id="mailboxHomeBtn">&#8592; Back to Home</button>
     </div>
   </main>
 
@@ -789,6 +948,7 @@
     const sendBtn = document.getElementById("sendBtn");
     const popupOverlay = document.getElementById("popupOverlay");
     const closePopup = document.getElementById("closePopup");
+    const homeView = document.getElementById("homeView");
     const mailboxView = document.getElementById("mailboxView");
     const formView = document.getElementById("formView");
     const complaintList = document.getElementById("complaintList");
@@ -839,7 +999,7 @@
         "Mobile: " + complaint.mobile,
         "Email: " + (complaint.email || "-"),
         "Problem: " + complaint.problem,
-        "Amount: Rs." + complaint.amount,
+        "Amount: " + (complaint.amount ? "Rs." + complaint.amount : "-"),
         "Time: " + complaint.date,
         "Status: " + complaint.status,
       ].join("\n");
@@ -858,7 +1018,15 @@
       }
     }
 
+    function openHome() {
+      formView.style.display = "none";
+      mailboxView.style.display = "none";
+      homeView.style.display = "block";
+      window.scrollTo(0, 0);
+    }
+
     function openMailbox() {
+      homeView.style.display = "none";
       formView.style.display = "none";
       mailboxView.style.display = "block";
       renderMailbox();
@@ -866,9 +1034,38 @@
     }
 
     function openForm() {
+      homeView.style.display = "none";
       mailboxView.style.display = "none";
       formView.style.display = "block";
       window.scrollTo(0, 0);
+    }
+
+    function openHelp(problem) {
+      openForm();
+      problemSelect.value = problem;
+      applyProblemLabels();
+      clearFormError();
+    }
+
+    function openLiveChat() {
+      if (!settingsData) {
+        showToast("Please wait a moment and try again.");
+        return;
+      }
+
+      const url = String(settingsData.chatUrl || "").trim();
+
+      if (!url) {
+        showToast("Live chat is not available right now. Please send a complaint.");
+        return;
+      }
+
+      if (/^(javascript|data|vbscript):/i.test(url)) {
+        showToast("Live chat is not available right now. Please send a complaint.");
+        return;
+      }
+
+      window.open(url, "_blank", "noopener");
     }
 
     function esc(value) {
@@ -921,7 +1118,7 @@
               <div class="complaint-row"><span class="lbl">Mobile Number</span><span class="val">${esc(c.mobile)}</span></div>
               <div class="complaint-row"><span class="lbl">Email ID</span><span class="val">${esc(c.email)}</span></div>
               <div class="complaint-row"><span class="lbl">Problem</span><span class="val">${esc(c.problem)}</span></div>
-              <div class="complaint-row"><span class="lbl">Amount</span><span class="val">&#8377;${esc(c.amount)}</span></div>
+              <div class="complaint-row"><span class="lbl">Amount</span><span class="val">${c.amount ? "&#8377;" + esc(c.amount) : "-"}</span></div>
             </div>
             ${viewBtn}
           `;
@@ -930,7 +1127,20 @@
     }
 
     backBtn.addEventListener("click", openForm);
+    document.getElementById("formHomeBtn").addEventListener("click", openHome);
+    document.getElementById("mailboxHomeBtn").addEventListener("click", openHome);
     document.getElementById("mailBtn").addEventListener("click", openMailbox);
+
+    homeView.addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-help]");
+      if (!btn) return;
+
+      if (btn.dataset.help === "livechat") {
+        openLiveChat();
+      } else {
+        openHelp(btn.dataset.help);
+      }
+    });
 
     // Image viewer
     const imgOverlay = document.getElementById("imgOverlay");
@@ -967,9 +1177,13 @@
 
     // Amount + upload label change based on selected problem
     function uploadHint() {
-      return problemSelect.value === "withdrawal"
-        ? "Click to upload withdrawal issue screenshot"
-        : "Click to upload payment screenshot";
+      if (problemSelect.value === "withdrawal") {
+        return "Click to upload withdrawal issue screenshot";
+      }
+      if (problemSelect.value === "account") {
+        return "Click to upload account issue screenshot (optional)";
+      }
+      return "Click to upload payment screenshot";
     }
 
     function uploadMissingMsg() {
@@ -981,6 +1195,9 @@
     function applyProblemLabels() {
       const value = problemSelect.value;
 
+      // Account problem me amount optional hai, baaki problems me required.
+      amountInput.required = value !== "account";
+
       if (value === "deposit") {
         amountLabel.textContent = "Enter Deposit Amount";
         amountInput.placeholder = "Enter deposit amount";
@@ -989,6 +1206,10 @@
         amountLabel.textContent = "Enter Withdrawal Amount";
         amountInput.placeholder = "Enter withdrawal amount";
         uploadLabel.textContent = "Upload Withdrawal Issue Image";
+      } else if (value === "account") {
+        amountLabel.textContent = "Enter Amount (Optional)";
+        amountInput.placeholder = "Enter amount if related to your issue";
+        uploadLabel.textContent = "Upload Screenshot (Optional)";
       } else {
         amountLabel.textContent = "Enter Amount";
         amountInput.placeholder = "Enter amount";
@@ -1056,13 +1277,13 @@
         problems.push("Enter an amount of 1 or more.");
       }
 
-      if (!fileInput.files[0]) {
+      if (!fileInput.files[0] && problemSelect.value !== "account") {
         uploadBox.classList.remove("has-file");
         uploadText.textContent = uploadMissingMsg();
         uploadText.style.color = "#ef4444";
         valid = false;
         problems.push(uploadMissingMsg());
-      } else {
+      } else if (fileInput.files[0]) {
         uploadBox.classList.add("has-file");
         uploadText.style.color = "";
       }
@@ -1103,7 +1324,11 @@
           mobile: document.getElementById("mobile").value.trim(),
           email: document.getElementById("email").value.trim(),
           problem:
-            problemSelect.value === "deposit" ? "Deposit Problem" : "Withdrawal Problem",
+            problemSelect.value === "deposit"
+              ? "Deposit Problem"
+              : problemSelect.value === "account"
+                ? "Account Problem"
+                : "Withdrawal Problem",
           amount: amountInput.value,
           date: new Date().toLocaleString(),
           createdAt: Date.now(),
